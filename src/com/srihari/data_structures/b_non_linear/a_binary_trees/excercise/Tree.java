@@ -220,6 +220,21 @@ public class Tree {
         return node.leftChild == null && node.rightChild == null;
     }
 
+    public void printNodesAtDistance(int distance){
+        printNodesAtDistance(root, distance);
+    }
+    private void printNodesAtDistance(Node root, int distance){
+        if(root == null){
+            return;
+        }
+        if(distance == 0){
+            System.out.println(root.value);
+            return;
+        }
+        printNodesAtDistance(root.leftChild, distance-1);
+        printNodesAtDistance(root.rightChild, distance-1);
+    }
+
     @Override
     public String toString() {
         return "Tree{" +
