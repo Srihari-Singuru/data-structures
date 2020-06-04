@@ -177,8 +177,11 @@ public class Tree {
         return value;
     }
 
-    public boolean isTreeEqual(Tree tree){
-        return isTreeEqual(this.root, tree.root);
+    public boolean isTreeEqual(Tree other){
+        if(other == null){
+            return false;
+        }
+        return isTreeEqual(this.root, other.root);
     }
     private boolean isTreeEqual(Node first, Node second){
         if(first == null && second == null){

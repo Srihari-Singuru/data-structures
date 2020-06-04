@@ -12,10 +12,10 @@ public class D_BinaryTreeEquality {
         bst1.insert(10);
 
         Tree bst2 = new Tree();
-        bst2.insert(7);
         bst2.insert(4);
         bst2.insert(9);
         bst2.insert(1);
+        bst2.insert(7);
         bst2.insert(6);
         bst2.insert(8);
         //bst2.insert(10);
