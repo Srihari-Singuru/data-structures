@@ -20,6 +20,8 @@ public class MainApplication {
         //System.out.println(binarySearchTree.size());
         //System.out.println(binarySearchTree.countLeaves());
         //System.out.println(binarySearchTree.max());
-        System.out.println(binarySearchTree.contains(24));
+        //System.out.println(binarySearchTree.contains(24));
+        //System.out.println(binarySearchTree.areSiblings(14, 6));
+        binarySearchTree.ancestors(3).forEach(System.out::println);
     }
 }

@@ -1,5 +1,8 @@
 package com.srihari.data_structures.b_non_linear.a_binary_trees.d_exercise;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class BinarySearchTree {
     private static class Node {
         private final int value;
@@ -147,6 +150,45 @@ public class BinarySearchTree {
             return contains(root.leftChild, value);
         } else {
             return contains(root.rightChild, value);
+        }
+    }
+
+    public boolean areSiblings(int first, int second){
+       return areSiblings(root, first, second);
+    }
+
+    private boolean areSiblings(Node root, int first, int second){
+        if(root == null){
+            return false;
+        }
+        if(root.leftChild == null || root.rightChild == null){
+            return false;
+        }
+
+        return (root.leftChild.value == Math.min(first, second)
+                && root.rightChild.value == Math.max(first, second))
+                || areSiblings(root.leftChild, first, second)
+                || areSiblings(root.rightChild, first, second);
+    }
+
+    public List<Integer> ancestors(int value){
+        List<Integer> list = new ArrayList<>();
+        return ancestors(root, value, list);
+    }
+    private List<Integer> ancestors(Node root, int value, List<Integer> list){
+        if(root == null){
+            list.clear();
+            return list;
+        }
+        if(value == root.value){
+            return list;
+        }
+
+        list.add(root.value);
+        if(value < root.value){
+            return ancestors(root.leftChild, value, list);
+        } else{
+            return ancestors(root.rightChild, value, list);
         }
     }
 
