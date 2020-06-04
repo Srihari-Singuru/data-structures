@@ -177,6 +177,21 @@ public class Tree {
         return value;
     }
 
+    public boolean isTreeEqual(Tree tree){
+        return isTreeEqual(this.root, tree.root);
+    }
+    private boolean isTreeEqual(Node first, Node second){
+        if(first == null && second == null){
+            return true;
+        }
+        if(first != null && second != null){        // this is pre-order traversal
+            return first.value == second.value
+                    && isTreeEqual(first.leftChild, second.leftChild)
+                    && isTreeEqual(first.rightChild, second.rightChild);
+        }
+        return false;
+    }
+
     private boolean isLeaf(Node node){
         return node.leftChild == null && node.rightChild == null;
     }
