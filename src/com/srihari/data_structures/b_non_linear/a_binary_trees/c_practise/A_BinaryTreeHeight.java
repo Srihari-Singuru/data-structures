@@ -1,4 +1,4 @@
-package com.srihari.data_structures.b_non_linear.a_binary_trees.excercise;
+package com.srihari.data_structures.b_non_linear.a_binary_trees.c_practise;
 
 public class A_BinaryTreeHeight {
     public static void main(String[] args) {
