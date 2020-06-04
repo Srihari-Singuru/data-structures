@@ -1,4 +1,4 @@
-package com.srihari.data_structures.b_non_linear.a_binary_trees.a_binary_search_tree.a_insert;
+package com.srihari.data_structures.b_non_linear.a_binary_trees.a_binary_search_tree.a_operations;
 
 public class BSTApplication {
     public static void main(String[] args) {
@@ -10,7 +10,9 @@ public class BSTApplication {
         bst.insert(6);
         bst.insert(8);
         bst.insert(10);
-
         System.out.println(bst);
+
+        var found = bst.find(6);
+        System.out.println(found);
     }
 }

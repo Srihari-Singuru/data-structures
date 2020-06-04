@@ -1,4 +1,4 @@
-package com.srihari.data_structures.b_non_linear.a_binary_trees.a_binary_search_tree.a_insert;
+package com.srihari.data_structures.b_non_linear.a_binary_trees.a_binary_search_tree.a_operations;
 
 public class Tree {
     private static class Node {
@@ -46,6 +46,22 @@ public class Tree {
                 current = current.rightChild;
             }
         }
+    }
+
+    public boolean find(int value){
+        var current = root;
+        while(current != null) {    // cannot use while(true), because the element may not exist in the BST
+            if(value == current.value){
+                return true;
+            }
+
+            if(value < current.value){
+                current = current.leftChild;
+            } else{
+                current = current.rightChild;
+            }
+        }
+        return false;
     }
 
     @Override
