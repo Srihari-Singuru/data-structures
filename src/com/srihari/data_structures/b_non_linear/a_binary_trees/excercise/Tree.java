@@ -1,4 +1,4 @@
-package com.srihari.data_structures.b_non_linear.a_binary_trees.a_binary_search_tree.b_traverse.a_dfs;
+package com.srihari.data_structures.b_non_linear.a_binary_trees.excercise;
 
 public class Tree {
     private static class Node {
@@ -102,6 +102,81 @@ public class Tree {
         traversePostOrder(root.leftChild);
         traversePostOrder(root.rightChild);
         System.out.println(root.value);
+    }
+
+    public int height(){
+        return height(root);
+    }
+    private int height(Node root){      // height of a tree - (1 + max(height(left), height(right)) - This is like postOrderTraversal
+        if(root == null){   // null child
+            return -1;
+        }
+        if(isLeaf(root)){      // leaf child
+            return 0;
+        }
+
+        return 1 + Math.max(height(root.leftChild), height(root.rightChild));   // height
+    }
+
+    // If tree is not Binary Search Tree
+    public int min(){
+        return min(root);
+    }
+    private int min(Node root){ // We need to compare the left value and right value and then propagate till root, so it is also kind of post order traversal
+        if(root == null){
+            return Integer.MAX_VALUE;
+        }
+        if(isLeaf(root)){
+            return root.value;
+        }
+        return Math.min(
+                root.value,
+                Math.min(
+                        min(root.leftChild),
+                        min(root.rightChild)
+                )
+        );
+    }
+
+    // If tree is Binary Search Tree
+    public int bstMin(){
+        return bstMin(root);
+    }
+    private int bstMin(Node root){
+        if(root == null){
+            return -1;
+        }
+
+        var current = root; // do not loose root
+        int value = current.value;
+
+        while (current.leftChild != null){
+            current = current.leftChild;
+            value = current.value;
+        }
+        return value;
+    }
+
+    public int bstMax(){
+        return bstMax(root);
+    }
+    private int bstMax(Node root){
+        if(root == null){
+            return -1;
+        }
+
+        var current = root;
+        var value = current.value;
+
+        while (current.rightChild != null){
+            current = current.rightChild;
+            value = current.value;
+        }
+        return value;
+    }
+
+    private boolean isLeaf(Node node){
+        return node.leftChild == null && node.rightChild == null;
     }
 
     @Override

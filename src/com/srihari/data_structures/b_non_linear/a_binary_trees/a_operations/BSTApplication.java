@@ -1,4 +1,4 @@
-package com.srihari.data_structures.b_non_linear.a_binary_trees.a_binary_search_tree.a_operations;
+package com.srihari.data_structures.b_non_linear.a_binary_trees.a_operations;
 
 public class BSTApplication {
     public static void main(String[] args) {

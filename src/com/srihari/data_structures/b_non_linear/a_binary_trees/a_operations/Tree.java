@@ -1,4 +1,4 @@
-package com.srihari.data_structures.b_non_linear.a_binary_trees.a_binary_search_tree.b_traverse.b_bfs;
+package com.srihari.data_structures.b_non_linear.a_binary_trees.a_operations;
 
 public class Tree {
     private static class Node {
@@ -62,60 +62,6 @@ public class Tree {
             }
         }
         return false;
-    }
-
-    public void traversePreOrder(){
-        traversePreOrder(root);
-    }
-    private void traversePreOrder(Node root){
-        if(root == null){
-            return;
-        }
-
-        System.out.println(root.value);
-        traversePreOrder(root.leftChild);
-        traversePreOrder(root.rightChild);
-    }
-
-    public void traverseInOrder(){
-        traverseInOrder(root);
-    }
-    private void traverseInOrder(Node root){
-        if(root == null){
-            return;
-        }
-
-        // This will print the values in ascending order (exchange the left with right for descending order)
-        traverseInOrder(root.leftChild);
-        System.out.println(root.value);
-        traverseInOrder(root.rightChild);
-    }
-
-    public void traversePostOrder(){
-        traversePostOrder(root);
-    }
-    private void traversePostOrder(Node root){
-        if(root == null){
-            return;
-        }
-
-        traversePostOrder(root.leftChild);
-        traversePostOrder(root.rightChild);
-        System.out.println(root.value);
-    }
-
-    public int height(){
-        return height(root);
-    }
-    private int height(Node root){      // height of a tree - (1 + max(height(left), height(right)) - This is like postOrderTraversal
-        if(root == null){   // null child
-            return -1;
-        }
-        if(root.leftChild == null && root.rightChild == null){      // leaf child
-            return 0;
-        }
-
-        return 1 + Math.max(height(root.leftChild), height(root.rightChild));   // height
     }
 
     @Override

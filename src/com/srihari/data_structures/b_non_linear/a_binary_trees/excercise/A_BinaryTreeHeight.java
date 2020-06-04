@@ -1,6 +1,6 @@
-package com.srihari.data_structures.b_non_linear.a_binary_trees.a_binary_search_tree.b_traverse.b_bfs;
+package com.srihari.data_structures.b_non_linear.a_binary_trees.excercise;
 
-public class BSTApplication {
+public class A_BinaryTreeHeight {
     public static void main(String[] args) {
         Tree bst = new Tree();
         bst.insert(7);
