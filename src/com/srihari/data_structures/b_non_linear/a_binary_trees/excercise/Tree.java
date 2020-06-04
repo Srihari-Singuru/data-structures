@@ -119,12 +119,13 @@ public class Tree {
     }
 
     // If tree is not Binary Search Tree
+    // O(n)
     public int min(){
         return min(root);
     }
     private int min(Node root){ // We need to compare the left value and right value and then propagate till root, so it is also kind of post order traversal
         if(root == null){
-            return Integer.MAX_VALUE;
+            throw new IllegalStateException();
         }
         if(isLeaf(root)){
             return root.value;
@@ -139,12 +140,13 @@ public class Tree {
     }
 
     // If tree is Binary Search Tree
+    //O(log(n))
     public int bstMin(){
         return bstMin(root);
     }
     private int bstMin(Node root){
         if(root == null){
-            return -1;
+            throw  new IllegalStateException();
         }
 
         var current = root; // do not loose root
@@ -162,7 +164,7 @@ public class Tree {
     }
     private int bstMax(Node root){
         if(root == null){
-            return -1;
+            throw new IllegalStateException();
         }
 
         var current = root;
