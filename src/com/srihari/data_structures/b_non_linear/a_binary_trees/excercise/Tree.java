@@ -195,6 +195,27 @@ public class Tree {
         return false;
     }
 
+    public boolean isBinarySearchTree(){
+        return isBinarySearchTree(root, Integer.MIN_VALUE, Integer.MAX_VALUE);
+    }
+    private boolean isBinarySearchTree(Node root, int min, int max){    // we can use recursion without using min and max values, but that will be costly as we need to validate the same roots again and again
+        if(root == null){   // empty tree is BST
+            return true;
+        }
+        if(root.value <= min || root.value >= max){ // out of range
+            return false;
+        }
+        return isBinarySearchTree(root.leftChild, min, root.value)
+                && isBinarySearchTree(root.rightChild, root.value, max);
+    }
+
+    // temporary method to replicate non-BST
+    public void swapLeftToRight(){
+        var temp = root.leftChild;
+        root.leftChild = root.rightChild;
+        root.rightChild = temp;
+    }
+
     private boolean isLeaf(Node node){
         return node.leftChild == null && node.rightChild == null;
     }
